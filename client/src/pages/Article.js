@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import ArticleContent from "./article-content";
 // form component
@@ -8,6 +8,7 @@ import NotFound from "./NotFound";
 const Article = () => {
   const { name } = useParams();
   const article = ArticleContent.find((article) => article.name === name);
+  const [articleInfo, setArticleInfo] = useState({ comments: [] });
   if (!article) {
     return (
       <h1>
